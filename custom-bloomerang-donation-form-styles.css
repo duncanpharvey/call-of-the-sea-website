@@ -1,0 +1,87 @@
+#donation-form #donation-amount,
+#donation-form #other-amount {
+    padding-left: 16px;
+}
+
+#donation-form .donation-amount:before,
+#donation-form .other-amount:before {
+    color: #000000;
+    content: "$";
+    font-size: 14px;
+    padding-top: 6px;
+    position: absolute;
+}
+
+#donation-form .start-date:before {
+    color: #000000;
+    content: "Starting on ";
+    font-size: 14px;
+    padding-top: 6px;
+}
+
+#donation-form .donation-amount:before {
+    left: 5px;
+}
+
+#donation-form .other-amount:before {
+    left: 70px;
+}
+
+#donation-form h3,
+#donation-form label {
+    display: none;
+}
+
+#donation-form label[for="recurring"],
+#donation-form label[for="true-impact"],
+#donation-form .radio label {
+    color: #000000;
+    display: block;
+    font-size: 14px;
+}
+
+#donation-form input,
+#donation-form select,
+#donation-form textarea {
+    border-color: #dcdcdc;
+    border-radius: 5px;
+    border-style: inset;
+    border-width: 1px;
+    box-sizing: border-box;
+    color: #000000;
+    font-size: 14px;
+    height: 36px;
+}
+
+#donation-form input::placeholder,
+#donation-form textarea::placeholder {
+    color: #b3b3b3;
+}
+
+#donation-form #frequency {
+    width: 100px;
+}
+
+#donation-form #start-date {
+    width: 160px;
+}
+
+#donation-form .section.recurring,
+#donation-form .section.true-impact,
+#donation-form #noCaptchaResponseError {
+    padding-left: 14px;
+}
+
+#donation-form #express-submit {
+    background-color: #313e7c;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 16px;
+    height: 48px;
+    margin: 16px 0px 16px 0px;
+    width: 170px;
+}
+
+#donation-form #express-submit:active {
+    background-color: black;
+}
