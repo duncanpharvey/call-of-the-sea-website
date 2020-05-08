@@ -87,11 +87,11 @@ FROM wp_posts p
     JOIN results4 r ON r.ID = p.ID
 WHERE LOCATE(@val, t.content, r.pos + 1) != 0;
 
-SELECT p.ID, p.post_name, p.post_type, r.pos, SUBSTRING(t.content, r.pos - 10, 27) AS email, CONCAT('https://callofthesea.org/', p.post_name)
+SELECT p.ID, p.post_name, p.post_type, r.pos, SUBSTRING(t.content, r.pos - 10, 27) AS email, p.guid AS url
 FROM wp_posts p
     JOIN temp_posts t ON t.ID = p.ID
     LEFT JOIN (
-                                                                                                                                                                                                                                                                        SELECT ID, pos
+                                                                                                                                                                         SELECT ID, pos
         FROM results1
     UNION
         SELECT ID, pos
