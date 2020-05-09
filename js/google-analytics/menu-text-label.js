@@ -6,12 +6,11 @@
 
 function() {
     var url = {{Click URL}};
-    var len = url.length;
     var label;
-    if (url.search("callofthesea.org\/$") != -1) {
-        label = 'home';
+    if (url.search(/callofthesea.org\/$/) != -1) {
+        label = "home";
     } else {
-        label = url.slice(url.lastIndexOf('/', len - 2) + 1, len - 1).replace(/-/g, ' ');
+        label = url.match(/callofthesea.org\/.*\/$/)[0].slice(17, -1).replace(/-/g, ' ');
     }
     return label;
 }
