@@ -1,3 +1,7 @@
+/*
+v1.0.1
+*/
+
 #donation-form #donation-amount,
 #donation-form #other-amount {
     padding-left: 16px;
@@ -42,7 +46,8 @@
 
 #donation-form input,
 #donation-form select,
-#donation-form textarea {
+#donation-form textarea,
+#donation-form #card-element.StripeElement {
     border-color: #dcdcdc;
     border-radius: 5px;
     border-style: inset;
@@ -84,4 +89,12 @@
 
 #donation-form #express-submit:active {
     background-color: black;
+}
+
+#donation-form #card-element.StripeElement {
+	max-width:350px;
+}
+
+#donation-form #card-element.StripeElement--invalid {
+	border-color: #fa755a;
 }
