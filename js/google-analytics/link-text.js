@@ -1,3 +1,3 @@
 function() {
-    return {{Click Element}}.querySelector("span").textContent.toLowerCase();
+    return {{Click Element}}.textContent.toLowerCase();
 }
