@@ -51,7 +51,10 @@ Text Domain:  Avada
 
 /* Hide form field labels */
 #donation-form h3,
-#donation-form label {
+#donation-form label,
+#email-registration-form h3,
+#email-registration-form label:not([for="CustomAccountField_945152"]),
+#email-registration-form .consent {
     display: none;
 }
 
@@ -59,7 +62,9 @@ Text Domain:  Avada
 #donation-form input,
 #donation-form select,
 #donation-form textarea,
-#donation-form #card-element.StripeElement {
+#donation-form #card-element.StripeElement,
+#email-registration-form input, 
+#email-registration-form .checkboxes {
     border-color: #dcdcdc;
     border-radius: 5px;
     border-style: inset;
@@ -71,7 +76,8 @@ Text Domain:  Avada
 }
 
 #donation-form input::placeholder,
-#donation-form textarea::placeholder {
+#donation-form textarea::placeholder,
+#email-registration-form input::placeholder {
     color: #b3b3b3;
 }
 
@@ -90,6 +96,10 @@ Text Domain:  Avada
     padding-left: 14px;
 }
 
+#email-registration-form #CustomAccountField_945152 {
+	height: 61px;
+}
+
 /* Style Stripe credit card field */
 #donation-form #card-element.StripeElement {
 	max-width:350px;
@@ -99,8 +109,9 @@ Text Domain:  Avada
 	border-color: #fa755a;
 }
 
-/* style donate button */
-#donation-form #express-submit {
+/* style submit button */
+#donation-form .btn-submit,
+#email-registration-form .btn-submit {
     background-color: #313e7c;
     color: #ffffff;
     cursor: pointer;
@@ -110,6 +121,7 @@ Text Domain:  Avada
     width: 170px;
 }
 
-#donation-form #express-submit:active {
+#donation-form .btn-submit:active,
+#email-registration-form .btn-submit:active {
     background-color: black;
 }
