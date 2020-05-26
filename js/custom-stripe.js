@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    var stripe = Stripe('pk_test_dN3uwiG2EgJb92Epj7EQFSKz');
+    var stripe = Stripe('pk_live_gRv3aIGUimO32fejEm3OszCY');
 
     document.querySelectorAll(".stripe-checkout-button").forEach(checkoutButton => {
         checkoutButton.addEventListener('click', function () {
