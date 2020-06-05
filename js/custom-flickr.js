@@ -42,8 +42,8 @@ function getAllFlickrPhotos(page = 1, append = false) {
         }
     }).then(response => {
         if (response.data.stat != 'ok') { return; }
-        currentPage = response.data.photos.page;
-        totalPages = response.data.photos.pages;
+        currentPage = parseInt(response.data.photos.page);
+        totalPages = parseInt(response.data.photos.pages);
         createFlickrPhotoElements(response.data.photos.photo, '', '', append);
     });
 }
