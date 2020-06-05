@@ -4,7 +4,7 @@ Description: Child theme for Avada theme
 Author: ThemeFusion
 Author URI: https://theme-fusion.com
 Template: Avada
-Version: 1.4.0
+Version: 1.4.1
 Text Domain:  Avada
 */
 
@@ -24,6 +24,30 @@ Text Domain:  Avada
 
 /* Flickr */
 
+@media (max-width: 768px) {
+    .flickr-photo {
+		height: 150px;
+		width: 150px;
+	}
+
+	.flickr-photo.isfeatured {
+		height: 300px;
+		width: 300px;
+	}
+}
+
+@media (min-width: 769px) {
+    .flickr-photo {
+		height: 200px;
+		width: 200px;
+	}
+
+	.flickr-photo.isfeatured {
+		height: 400px;
+		width: 400px;
+	}
+}
+
 .flickr-photo-wrapper {
     display: inline-block;
     padding: 3px;
@@ -38,16 +62,9 @@ Text Domain:  Avada
     animation-iteration-count: 1;
     animation-name: fadeInOpacity;
     animation-timing-function: ease-in;
-    height: 200px;
     object-fit: cover;
     opacity: 1;
     transition: opacity 0.2s;
-    width: 200px;
-}
-
-.flickr-photo.isfeatured {
-    height: 400px;
-    width: 400px;
 }
 
 .flickr-photo:hover {
