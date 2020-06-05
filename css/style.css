@@ -4,7 +4,7 @@ Description: Child theme for Avada theme
 Author: ThemeFusion
 Author URI: https://theme-fusion.com
 Template: Avada
-Version: 1.3.0
+Version: 1.4.0
 Text Domain:  Avada
 */
 
@@ -21,6 +21,43 @@ Text Domain:  Avada
 .page-id-757 .fusion-page-title-bar .fusion-button { margin:8px; }
 .page-id-757 .fusion-page-title-bar #home-title-bar { height:90vh; }
 .fusion-page-title-bar .title { -webkit-font-smoothing:antialiased; }
+
+/* Flickr */
+
+.flickr-photo-wrapper {
+    display: inline-block;
+    padding: 3px;
+}
+
+.flickr-photo-wrapper > a {
+    display: inline-block;
+}
+
+.flickr-photo {
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-name: fadeInOpacity;
+    animation-timing-function: ease-in;
+    height: 200px;
+    object-fit: cover;
+    opacity: 1;
+    transition: opacity 0.2s;
+    width: 200px;
+}
+
+.flickr-photo.isfeatured {
+    height: 400px;
+    width: 400px;
+}
+
+.flickr-photo:hover {
+    opacity: 0.3;
+}
+
+@keyframes fadeInOpacity {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
 
 /* Bloomerang */
 
