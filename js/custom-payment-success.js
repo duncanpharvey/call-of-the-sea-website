@@ -1,3 +1,7 @@
+/*
+    https://callofthesea.org/payment-success/
+*/
+
 function goBack() {
     var urlParams = new URLSearchParams(window.location.search);
     var paymentOrigin = urlParams.get('payment-origin');

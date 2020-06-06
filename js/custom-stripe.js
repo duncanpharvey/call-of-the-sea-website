@@ -1,3 +1,7 @@
+/*
+    https://https://callofthesea.org/sail-with-us/youth-overnight/
+*/
+
 document.addEventListener("DOMContentLoaded", () => {
     var stripe = Stripe('pk_live_gRv3aIGUimO32fejEm3OszCY');
 

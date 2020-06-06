@@ -1,6 +1,6 @@
 /*
-https://callofthesea.org/donate/
-https://callofthesea.org/donate/scholarships/
+    https://callofthesea.org/donate/
+    https://callofthesea.org/donate/scholarships/
 */
 
 var checkExist = setInterval(function () {

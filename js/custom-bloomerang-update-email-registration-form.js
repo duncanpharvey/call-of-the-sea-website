@@ -1,6 +1,7 @@
 /*
-https://callofthesea.org/sign-up-for-newsletter/
-https://callofthesea.org/contact-us/
+    https://callofthesea.org/sign-up-for-newsletter/
+    https://callofthesea.org/contact-us/
+    https://callofthesea.org/community/
 */
 
 var checkExist = setInterval(function () {

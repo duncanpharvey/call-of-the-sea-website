@@ -1,5 +1,5 @@
 /*
-https://wpcotstest.wpengine.com/sail-with-us/youth-day/
+    https:/callofthesea.org/sail-with-us/youth-day/
 */
 
 document.addEventListener("DOMContentLoaded", () => {
