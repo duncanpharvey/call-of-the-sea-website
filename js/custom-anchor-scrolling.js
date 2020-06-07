@@ -1,7 +1,3 @@
-/*
-    https:/callofthesea.org/sail-with-us/youth-day/
-*/
-
 document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll(".program-lesson-links a").forEach(link => {
         // add anchor scrolling class to lesson links

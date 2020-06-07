@@ -1,12 +1,8 @@
-/*
-    https://callofthesea.org/photo-gallery/
-*/
-
 // flickr photo sizes - https://www.flickr.com/services/api/misc.urls.html
 const default_size = 'm';
 const api_key = 'd06fdce54f321deaef2c50239191f68c';
 const format = 'json';
-const flickr_api_url = "https://api.flickr.com/services/rest/";
+const flickr_api_url = 'https://api.flickr.com/services/rest/';
 const nojsoncallback = '1';
 const per_page = '24';
 const user_id = '188642069@N06';
@@ -137,7 +133,17 @@ function checkScreenPosition() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    getFlickrAlbums();
-    getFlickrAlbumPhotos('72157714587695061'); // load featured photos by default
-    document.addEventListener('scroll', checkScreenPosition); // monitor scroll event for infinite scrolling
+    var flickr_container = document.getElementById('flickr-container');
+    if (flickr_container) {
+        var flickr_album_container = document.createElement('flickr-album-container');
+        var flickr_photo_container = document.createElement('flickr-photo-container');
+        flickr_album_container.id = 'flickr-album-container';
+        flickr_photo_container.id = 'flickr-photo-container';
+        flickr_container.appendChild(flickr_album_container);
+        flickr_container.appendChild(flickr_photo_container);
+
+        getFlickrAlbums();
+        getFlickrAlbumPhotos('72157714587695061'); // load featured photos by default
+        document.addEventListener('scroll', checkScreenPosition); // monitor scroll event for infinite scrolling
+    }
 });
