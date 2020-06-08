@@ -13,11 +13,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 mode: 'payment',
                 successUrl: window.location.origin + '/payment-success/?payment-origin=' + window.location.pathname,
                 cancelUrl: window.location.href,
-            }).then((result) => {
-                if (result.error) {
-                    var displayError = document.getElementById(`error-message-${checkoutButton.id}`);
-                    displayError.textContent = result.error.message;
-                }
+            }).then(result => {
+                if (result.error) { error_message_container.textContent = result.error.message; }
             });
         });
     });

@@ -5,7 +5,7 @@ function returnToSailDetails() {
         window.location.href = window.location.origin + paymentOrigin;
     }
     else {
-        document.getElementById('error-message').textContent = "There is no page to return to!";
+        document.getElementById('error-message').textContent = 'There is no page to return to!';
     }
 }
 
