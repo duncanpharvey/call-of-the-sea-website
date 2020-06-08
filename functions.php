@@ -39,27 +39,26 @@ if (in_category('page-custom-code-anchor-scrolling')) {
 }
 add_action('wp_enqueue_scripts', 'theme_enqueue_scripts');
 
-// hide unused wordpress menus
-function hide_wordpress_menus()
+function hide_unused_wordpress_menus()
 {
 	remove_menu_page('edit-comments.php'); // Comments
 	remove_menu_page('edit.php?post_type=avada_portfolio'); // Portfolio
 	remove_menu_page('edit.php?post_type=avada_faq'); // FAQs
 }
-add_action('admin_menu', 'hide_wordpress_menus');
+add_action('admin_menu', 'hide_unused_wordpress_menus');
 
-// add short name
-add_filter('web_app_manifest', function ($manifest) {
+function update_manifest($manifest)
+{
 	$manifest['short_name'] = 'COTS';
 	$manifest['icons'] = [
 		["src" => "/wp-content/uploads/2020/06/call-of-the-sea-logo-512px.png", "sizes" => "512x512"],
 		["src" => "/wp-content/uploads/2020/06/call-of-the-sea-logo-touch-192px.png", "sizes" => "192x192"]
 	];
 	return $manifest;
-});
+}
+add_filter('web_app_manifest', 'update_manifest');
 
-// deregister unused scripts
-function custom_disable_js()
+function disable_unused_scripts()
 {
 	// no dependencies or dependents
 	Fusion_Dynamic_JS::deregister_script('avada-comments'); // 2020-05-21
@@ -124,4 +123,4 @@ function custom_disable_js()
 	Fusion_Dynamic_JS::deregister_script('jquery-count-to');
 	*/
 }
-add_action('wp_enqueue_scripts', 'custom_disable_js');
+add_action('wp_enqueue_scripts', 'disable_unused_scripts');
