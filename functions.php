@@ -17,23 +17,23 @@ function theme_enqueue_scripts()
 {
 	// https://callofthesea.org/payment-success/
 	if (is_page(14232)) {
-		wp_enqueue_script('custom-payment-success', get_stylesheet_directory_uri() . '/js/custom-payment-success.js', array(), '2.0.0', true);
+		wp_enqueue_script('custom-payment-success', get_stylesheet_directory_uri() . '/js/custom-payment-success.js', array(), '2.1.0', true);
 	}
 
 	// https://callofthesea.org/sail-with-us/youth-day/
 	if (is_page(11514)) {
-		wp_enqueue_script('custom-anchor-scrolling', get_stylesheet_directory_uri() . '/js/custom-anchor-scrolling.js', array(), '2.0.0', true);
+		wp_enqueue_script('custom-anchor-scrolling', get_stylesheet_directory_uri() . '/js/custom-anchor-scrolling.js', array(), '2.0.1', true);
 	}
 
 	// https://callofthesea.org/photo-gallery/
 	if (is_page(11488)) {
 		wp_enqueue_script('axios', 'https://unpkg.com/axios/dist/axios.min.js', array(), '0.19.2', true);
-		wp_enqueue_script('custom-flickr', get_stylesheet_directory_uri() . '/js/custom-flickr.js', array('axios'), '2.0.0', true);
+		wp_enqueue_script('custom-flickr', get_stylesheet_directory_uri() . '/js/custom-flickr.js', array('axios'), '2.0.1', true);
 	}
 
 	if (in_category('page-custom-code-stripe')) {
 		wp_enqueue_script('stripe', 'https://js.stripe.com/v3', array(), '3.0.0', true);
-		wp_enqueue_script('custom-stripe', get_stylesheet_directory_uri() . '/js/custom-stripe.js', array('stripe'), '2.0.0', true);
+		wp_enqueue_script('custom-stripe', get_stylesheet_directory_uri() . '/js/custom-stripe.js', array('stripe'), '2.0.1', true);
 	}
 }
 add_action('wp_enqueue_scripts', 'theme_enqueue_scripts');
