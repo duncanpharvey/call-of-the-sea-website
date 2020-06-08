@@ -35,6 +35,10 @@ function theme_enqueue_scripts()
 		wp_enqueue_script('stripe', 'https://js.stripe.com/v3', array(), '3.0.0', true);
 		wp_enqueue_script('custom-stripe', get_stylesheet_directory_uri() . '/js/custom-stripe.js', array('stripe'), '2.0.1', true);
 	}
+
+	if (in_category('page-custom-code-bloomerang')) {
+		wp_enqueue_script('custom-bloomerang-initialize-form', get_stylesheet_directory_uri() . '/js/custom-bloomerang-initialize-form.js', array(), '2.0.0', true);
+	}
 }
 add_action('wp_enqueue_scripts', 'theme_enqueue_scripts');
 
