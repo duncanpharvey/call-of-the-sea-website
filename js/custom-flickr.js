@@ -93,7 +93,10 @@ function createFlickrAlbumSelect(photosets) {
         else { document.getElementById('all-photos').selected = true; }
     }
 
-    select.addEventListener('change', () => {
+    select.addEventListener('change', function() {
+        var new_param = new URLSearchParams();
+        new_param.set('album', this.options[this.selectedIndex].value);
+        history.pushState(null, null, `?${new_param.toString()}`);
         currentPage = 1;
         loadFlickrPhotos();
     });

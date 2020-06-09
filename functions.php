@@ -25,7 +25,7 @@ if (in_category('page-custom-code-anchor-scrolling')) {
 
 	if (in_category('page-custom-code-flickr')) {
 		wp_enqueue_script('axios', 'https://unpkg.com/axios/dist/axios.min.js', array(), '0.19.2', true);
-		wp_enqueue_script('custom-flickr', get_stylesheet_directory_uri() . '/js/custom-flickr.js', array('axios'), '2.2.0', true);
+		wp_enqueue_script('custom-flickr', get_stylesheet_directory_uri() . '/js/custom-flickr.js', array('axios'), '2.2.1', true);
 	}
 
 	if (in_category('page-custom-code-stripe')) {
