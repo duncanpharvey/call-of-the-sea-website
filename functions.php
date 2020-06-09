@@ -116,11 +116,8 @@ function disable_unused_scripts()
 	Fusion_Dynamic_JS::deregister_script('jquery-mousewheel');
 	Fusion_Dynamic_JS::deregister_script('packery');
 
-	// counters box
-	/*
+	// counters box, deregistered on 2020-06-09
 	Fusion_Dynamic_JS::deregister_script('fusion-counters-box');
-	Fusion_Dynamic_JS::deregister_script('jquery-appear');
 	Fusion_Dynamic_JS::deregister_script('jquery-count-to');
-	*/
 }
 add_action('wp_enqueue_scripts', 'disable_unused_scripts');
