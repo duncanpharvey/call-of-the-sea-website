@@ -7,12 +7,12 @@ const nojsoncallback = '1';
 const per_page = '24';
 const user_id = '188642069@N06';
 
-var currentPage;
+var currentPage = 1;
 var timer;
 var totalPages;
 
-function getFlickrAlbums() {
-    axios.get(flickr_api_url, {
+async function getFlickrAlbums() {
+    await axios.get(flickr_api_url, {
         params: {
             api_key: api_key,
             format: format,
@@ -26,36 +26,35 @@ function getFlickrAlbums() {
     });
 }
 
-function getAllFlickrPhotos(page = 1, append = false) {
-    axios.get(flickr_api_url, {
+async function getAllFlickrPhotos() {
+    await axios.get(flickr_api_url, {
         params: {
             api_key: api_key,
             format: format,
             media: 'photos',
             method: 'flickr.photos.search',
             nojsoncallback: nojsoncallback,
-            page: page,
+            page: currentPage,
             per_page: per_page,
             privacy_filter: '1',
             user_id: user_id
         }
     }).then(response => {
         if (response.data.stat != 'ok') { return; }
-        currentPage = parseInt(response.data.photos.page);
         totalPages = parseInt(response.data.photos.pages);
-        createFlickrPhotoElements(response.data.photos.photo, '', '', append);
+        createFlickrPhotoElements(response.data.photos.photo, '', '');
     });
 }
 
-function getFlickrAlbumPhotos(albumId, page = 1, append = false) {
-    axios.get(flickr_api_url, {
+async function getFlickrAlbumPhotos(albumId) {
+    await axios.get(flickr_api_url, {
         params: {
             api_key: api_key,
             format: format,
             media: 'photos',
             method: 'flickr.photosets.getPhotos',
             nojsoncallback: nojsoncallback,
-            page: page,
+            page: currentPage,
             per_page: per_page,
             photoset_id: albumId,
             privacy_filter: '1',
@@ -63,10 +62,9 @@ function getFlickrAlbumPhotos(albumId, page = 1, append = false) {
         }
     }).then(response => {
         if (response.data.stat != 'ok') { return; }
-        currentPage = parseInt(response.data.photoset.page);
-        totalPages = parseInt(response.data.photoset.pages);
         var featured = albumId == '72157714587695061' ? true : false;
-        createFlickrPhotoElements(response.data.photoset.photo, response.data.photoset.owner, featured, append);
+        totalPages = parseInt(response.data.photoset.pages);
+        createFlickrPhotoElements(response.data.photoset.photo, response.data.photoset.owner, featured);
     });
 }
 
@@ -82,22 +80,32 @@ function createFlickrAlbumSelect(photosets) {
     });
     select.innerHTML = options_html;
 
-    select.addEventListener('change', function () {
-        var optionId = this.options[this.selectedIndex].id;
-        if (optionId == 'all-photos') { getAllFlickrPhotos() }
-        else { getFlickrAlbumPhotos(optionId) }
-    });
-
     document.getElementById('flickr-album-container').appendChild(select);
-    document.getElementById('72157714587695061').selected = true; // set featured photo album to be the default selected option
+
+    // use query parameter in url if available to default select option, otherwise use featured photos.
+    // If for some reason featured photos does not exist, use all photos
+    var urlParams = new URLSearchParams(window.location.search);
+    var album = urlParams.get('album');
+    try { select.querySelector('option[value = "' + album.replace(/ /g, '-').toLowerCase() + '"]').selected = true; }
+    catch {
+        var option = document.getElementById('72157714587695061');
+        if (option) { option.selected = true; }
+        else { document.getElementById('all-photos').selected = true; }
+    }
+
+    select.addEventListener('change', () => {
+        currentPage = 1;
+        loadFlickrPhotos();
+    });
 }
 
-function createFlickrPhotoElements(photos, owner, featured, append = false) {
+function createFlickrPhotoElements(photos, owner, featured) {
     if (featured) { size = 'z'; }
     else { size = default_size; }
-    var photo_container = document.getElementById('flickr-photo-container');
 
-    if (!append) { photo_container.innerHTML = ''; }
+    var photo_container = document.getElementById('flickr-photo-container');
+    if (currentPage == 1) { photo_container.innerHTML = ''; }
+
     photos.forEach(photo => {
         var embed_url = `https://farm${photo.farm}.static.flickr.com/${photo.server}/${photo.id}_${photo.secret}_${size}.jpg`;
         var link_url = `https://www.flickr.com/photos/${owner ? owner : photo.owner}/${photo.id}`;
@@ -112,38 +120,42 @@ function createFlickrPhotoElements(photos, owner, featured, append = false) {
     });
 }
 
-function loadMoreFlickrPhotos() {
+async function loadFlickrPhotos() {
     var select = document.querySelector('select#flickr-album');
     var optionId = select.options[select.selectedIndex].id;
-
-    var page = currentPage + 1;
-    if (optionId == 'all-photos') { getAllFlickrPhotos(page, true) }
-    else { getFlickrAlbumPhotos(optionId, page, true) }
+    if (optionId == 'all-photos') { await getAllFlickrPhotos() }
+    else { await getFlickrAlbumPhotos(optionId) }
 }
 
-function checkScreenPosition() {
+async function checkScreenPosition() {
     if (timer) { window.clearTimeout(timer); }
 
-    timer = window.setTimeout(function () {
+    timer = window.setTimeout(() => {
         var photo_container = document.getElementById('flickr-photo-container');
 
         // load more Flickr photos when the bottom of window is 400 pixels above the bottom of the photo container
-        if (window._fusionScrollTop + window.innerHeight > photo_container.offsetTop + photo_container.offsetHeight - 400 && currentPage < totalPages) { loadMoreFlickrPhotos(); }
+        if (window._fusionScrollTop + window.innerHeight > photo_container.offsetTop + photo_container.offsetHeight - 400 && currentPage < totalPages) {
+            currentPage ++;
+            loadFlickrPhotos();
+        }
     }, 100);
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+async function initializePage() {
     var flickr_container = document.getElementById('flickr-container');
-    if (flickr_container) {
-        var flickr_album_container = document.createElement('flickr-album-container');
-        var flickr_photo_container = document.createElement('flickr-photo-container');
-        flickr_album_container.id = 'flickr-album-container';
-        flickr_photo_container.id = 'flickr-photo-container';
-        flickr_container.appendChild(flickr_album_container);
-        flickr_container.appendChild(flickr_photo_container);
+    if (!flickr_container) { return; }
 
-        getFlickrAlbums();
-        getFlickrAlbumPhotos('72157714587695061'); // load featured photos by default
+    var flickr_album_container = document.createElement('flickr-album-container');
+    var flickr_photo_container = document.createElement('flickr-photo-container');
+    flickr_album_container.id = 'flickr-album-container';
+    flickr_photo_container.id = 'flickr-photo-container';
+    flickr_container.appendChild(flickr_album_container);
+    flickr_container.appendChild(flickr_photo_container);
+
+    getFlickrAlbums().then(async () => {
+        await loadFlickrPhotos();
         document.addEventListener('scroll', checkScreenPosition); // monitor scroll event for infinite scrolling
-    }
-});
+    });
+}
+
+document.addEventListener('DOMContentLoaded', initializePage);
