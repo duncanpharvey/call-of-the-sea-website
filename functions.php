@@ -9,7 +9,7 @@ add_action('after_setup_theme', 'avada_lang_setup');
 
 function theme_enqueue_styles()
 {
-	wp_enqueue_style('child-style', get_stylesheet_directory_uri() . '/style.css', array('avada-stylesheet'), '1.4.3');
+	wp_enqueue_style('child-style', get_stylesheet_directory_uri() . '/style.css', array('avada-stylesheet'), '1.4.4');
 }
 add_action('wp_enqueue_scripts', 'theme_enqueue_styles');
 
