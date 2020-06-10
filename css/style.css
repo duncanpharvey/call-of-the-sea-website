@@ -4,11 +4,11 @@ Description: Child theme for Avada theme
 Author: ThemeFusion
 Author URI: https://theme-fusion.com
 Template: Avada
-Version: 1.4.3
+Version: 1.4.4
 Text Domain:  Avada
 */
 
-/* custom error messages */
+/* Custom error messages */
 .custom-error-message {
     color: red;
 }
@@ -25,6 +25,8 @@ Text Domain:  Avada
 .page-id-757 .fusion-page-title-bar .fusion-column-wrapper { display:inline-block; }
 .page-id-757 .fusion-page-title-bar .fusion-button { margin:8px; }
 .page-id-757 .fusion-page-title-bar #home-title-bar { height:90vh; }
+
+/* All title bars */
 .fusion-page-title-bar .title { -webkit-font-smoothing:antialiased; }
 
 /* Flickr */
@@ -85,7 +87,7 @@ Text Domain:  Avada
 
 /* Bloomerang */
 
-/* Add $ to donation amount and other amount fields */
+/* add $ to donation amount and other amount fields */
 #donation-form #donation-amount,
 #donation-form #other-amount {
     padding-left: 16px;
@@ -108,7 +110,7 @@ Text Domain:  Avada
     left: 70px;
 }
 
-/* Give context to start date of recurring donation */
+/* give context to start date of recurring donation */
 #donation-form .start-date:before {
     color: #000000;
     content: "Starting on ";
@@ -124,7 +126,7 @@ Text Domain:  Avada
     width: 160px;
 }
 
-/* Hide form field labels */
+/* hide form field labels */
 #donation-form h3,
 #donation-form label,
 #email-registration-form h3,
@@ -133,7 +135,7 @@ Text Domain:  Avada
     display: none;
 }
 
-/* Use consistent style across all form fields, including Stripe credit card field */
+/* use consistent style across all form fields, including Stripe credit card field */
 #donation-form input,
 #donation-form select,
 #donation-form textarea,
@@ -175,7 +177,7 @@ Text Domain:  Avada
 	height: 61px;
 }
 
-/* Style Stripe credit card field */
+/* style Stripe credit card field */
 #donation-form #card-element.StripeElement {
 	max-width:350px;
 }
@@ -188,15 +190,19 @@ Text Domain:  Avada
 #donation-form .btn-submit,
 #email-registration-form .btn-submit {
     background-color: #313e7c;
+    border-style: solid;
+    border-width: 0px;
     color: #ffffff;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 14px;
     height: 48px;
+    letter-spacing: 1px;
     margin: 16px 0px 16px 0px;
+    text-transform: uppercase;
     width: 170px;
 }
 
-#donation-form .btn-submit:active,
-#email-registration-form .btn-submit:active {
+#donation-form .btn-submit:hover,
+#email-registration-form .btn-submit:hover {
     background-color: black;
 }
