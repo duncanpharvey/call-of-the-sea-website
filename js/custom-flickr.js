@@ -74,6 +74,18 @@ function createFlickrAlbumSelect(photosets) {
     select.setAttribute('name', 'flickr-album');
     var options_html = '<option id="all-photos" value="all-photos">All Photos</option>';
 
+    photosets.sort((a, b) => {
+        // sort featured photos before other albums, just below all photos
+        if (a.id == '72157714587695061') { return -1; }
+        else if (b.id == '72157714587695061') { return 1; }
+
+        var title_a = a.title._content.toLowerCase();
+        var title_b = b.title._content.toLowerCase();
+        if (title_a < title_b) { return -1; }
+        else if (title_a > title_b) { return 1; }
+        return 0;
+    });
+
     photosets.forEach(photoset => {
         var title = photoset.title._content;
         options_html += `<option id="${photoset.id}" value="${title.replace(/ /g, '-').toLowerCase()}">${title}</option>`;
@@ -93,7 +105,7 @@ function createFlickrAlbumSelect(photosets) {
         else { document.getElementById('all-photos').selected = true; }
     }
 
-    select.addEventListener('change', function() {
+    select.addEventListener('change', function () {
         var new_param = new URLSearchParams();
         new_param.set('album', this.options[this.selectedIndex].value);
         history.pushState(null, null, `?${new_param.toString()}`);
@@ -138,7 +150,7 @@ async function checkScreenPosition() {
 
         // load more Flickr photos when the bottom of window is 400 pixels above the bottom of the photo container
         if (window._fusionScrollTop + window.innerHeight > photo_container.offsetTop + photo_container.offsetHeight - 400 && currentPage < totalPages) {
-            currentPage ++;
+            currentPage++;
             loadFlickrPhotos();
         }
     }, 100);
