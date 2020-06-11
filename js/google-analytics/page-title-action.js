@@ -1,3 +1,3 @@
 function() {
-    return "click " + document.querySelector('meta[property = "og:title"]').content.toLowerCase();
+    return "click " + document.title.replace(/ - Call of the Sea/g, '').toLowerCase();
 }
