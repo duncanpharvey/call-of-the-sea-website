@@ -4,12 +4,20 @@ Description: Child theme for Avada theme
 Author: ThemeFusion
 Author URI: https://theme-fusion.com
 Template: Avada
-Version: 1.5.0
+Version: 1.6.0
 Text Domain:  Avada
 */
 
 /* Custom error messages */
+
 .custom-error-message { color: red; }
 
 /* Title bars */
-.fusion-page-title-bar .title { -webkit-font-smoothing:antialiased; }
+
+.fusion-page-title-bar .title { -webkit-font-smoothing: antialiased; }
+
+/* Footer contact info */
+
+.footer-contact-info { display: inline-block; }
+@media (max-width: 992px) { .footer-contact-info { width: 100%; } }
+@media (min-width: 993px) { .footer-contact-info { width: 33%; } }
