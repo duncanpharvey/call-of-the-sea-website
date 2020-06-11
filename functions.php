@@ -7,23 +7,24 @@ function avada_lang_setup()
 }
 add_action('after_setup_theme', 'avada_lang_setup');
 
-function theme_enqueue_styles()
+function theme_enqueue_scripts_styles()
 {
-	wp_enqueue_style('child-style', get_stylesheet_directory_uri() . '/style.css', array('avada-stylesheet'), '1.4.4');
-}
-add_action('wp_enqueue_scripts', 'theme_enqueue_styles');
+	wp_enqueue_style('child-style', get_stylesheet_directory_uri() . '/style.css', array('avada-stylesheet'), '1.5.0');
 
-function theme_enqueue_scripts()
-{
+	if (is_page(757)) {
+		wp_enqueue_style('home-title-bar-style', get_stylesheet_directory_uri() . '/home-title-bar.css', array(), '1.0.0');
+	}
+
 	if (in_category('page-custom-code-payment-success')) {
 		wp_enqueue_script('custom-payment-success', get_stylesheet_directory_uri() . '/js/custom-payment-success.js', array(), '2.2.0', true);
 	}
 
-if (in_category('page-custom-code-anchor-scrolling')) {
+	if (in_category('page-custom-code-anchor-scrolling')) {
 		wp_enqueue_script('custom-anchor-scrolling', get_stylesheet_directory_uri() . '/js/custom-anchor-scrolling.js', array(), '2.1.0', true);
 	}
 
 	if (in_category('page-custom-code-flickr')) {
+		wp_enqueue_style('flickr-style', get_stylesheet_directory_uri() . '/flickr.css', array(), '1.0.0');
 		wp_enqueue_script('axios', 'https://unpkg.com/axios/dist/axios.min.js', array(), '0.19.2', true);
 		wp_enqueue_script('custom-flickr', get_stylesheet_directory_uri() . '/js/custom-flickr.js', array('axios'), '2.2.2', true);
 	}
@@ -34,10 +35,11 @@ if (in_category('page-custom-code-anchor-scrolling')) {
 	}
 
 	if (in_category('page-custom-code-bloomerang')) {
+		wp_enqueue_style('bloomerang-style', get_stylesheet_directory_uri() . '/bloomerang.css', array(), '1.0.0');
 		wp_enqueue_script('custom-bloomerang-initialize-form', get_stylesheet_directory_uri() . '/js/custom-bloomerang-initialize-form.js', array(), '2.0.0', true);
 	}
 }
-add_action('wp_enqueue_scripts', 'theme_enqueue_scripts');
+add_action('wp_enqueue_scripts', 'theme_enqueue_scripts_styles');
 
 function hide_unused_wordpress_menus()
 {

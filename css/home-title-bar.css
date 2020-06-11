@@ -1,0 +1,15 @@
+/*
+Version: 1.0.0
+*/
+
+/* add parallax effect on large screens */
+@media (min-width: 993px) {
+    .page-id-757 .fusion-page-title-bar .fusion-row { position:fixed; z-index:2; }
+    .page-id-757 main#main, .page-id-757 .fusion-footer { position:relative; z-index:3; }
+}
+
+/* format title bar */
+.page-id-757 .fusion-page-title-bar .fusion-layout-column { text-align:center; }
+.page-id-757 .fusion-page-title-bar .fusion-column-wrapper { display:inline-block; }
+.page-id-757 .fusion-page-title-bar .fusion-button { margin:8px; }
+.page-id-757 .fusion-page-title-bar #home-title-bar { height:90vh; }

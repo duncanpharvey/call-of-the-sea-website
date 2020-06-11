@@ -1,0 +1,57 @@
+/*
+Version: 1.0.0
+*/
+
+@media (max-width: 768px) {
+    .flickr-photo {
+		height: 150px;
+		width: 150px;
+	}
+
+	.flickr-photo.featured {
+		height: 300px;
+		width: 300px;
+	}
+}
+
+@media (min-width: 769px) {
+    .flickr-photo {
+		height: 200px;
+		width: 200px;
+    }
+
+    .flickr-photo:hover {
+        opacity: 0.3;
+    }
+
+	.flickr-photo.featured {
+		height: 400px;
+		width: 400px;
+	}
+}
+
+.flickr-photo-wrapper {
+    display: inline-block;
+    padding: 3px;
+}
+
+#flickr-album-container,
+#flickr-photo-container,
+.flickr-photo-wrapper > a {
+    display: block;
+}
+
+.flickr-photo {
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-name: fadeInOpacity;
+    animation-timing-function: ease-in;
+    object-fit: cover;
+    opacity: 1;
+    transition: opacity 0.2s;
+}
+
+@keyframes fadeInOpacity {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
