@@ -12,7 +12,7 @@ function theme_enqueue_scripts_styles()
 	wp_enqueue_style('child-style', get_stylesheet_directory_uri() . '/style.css', array('avada-stylesheet'), '1.6.2');
 
 	if (is_page(757)) {
-		wp_enqueue_style('home-title-bar-style', get_stylesheet_directory_uri() . '/home-title-bar.css', array(), '1.0.0');
+		wp_enqueue_style('home-title-bar-style', get_stylesheet_directory_uri() . '/css/home-title-bar.css', array(), '1.1.0');
 	}
 
 	if (in_category('page-custom-code-payment-success')) {
@@ -24,7 +24,7 @@ function theme_enqueue_scripts_styles()
 	}
 
 	if (in_category('page-custom-code-flickr')) {
-		wp_enqueue_style('flickr-style', get_stylesheet_directory_uri() . '/flickr.css', array(), '1.0.0');
+		wp_enqueue_style('flickr-style', get_stylesheet_directory_uri() . '/css/flickr.css', array(), '1.1.0');
 		wp_enqueue_script('axios', 'https://unpkg.com/axios/dist/axios.min.js', array(), '0.19.2', true);
 		wp_enqueue_script('custom-flickr', get_stylesheet_directory_uri() . '/js/custom-flickr.js', array('axios'), '2.2.2', true);
 	}
@@ -35,7 +35,7 @@ function theme_enqueue_scripts_styles()
 	}
 
 	if (in_category('page-custom-code-bloomerang')) {
-		wp_enqueue_style('bloomerang-style', get_stylesheet_directory_uri() . '/bloomerang.css', array(), '1.0.0');
+		wp_enqueue_style('bloomerang-style', get_stylesheet_directory_uri() . '/css/bloomerang.css', array(), '1.1.0');
 		wp_enqueue_script('custom-bloomerang-initialize-form', get_stylesheet_directory_uri() . '/js/custom-bloomerang-initialize-form.js', array(), '2.0.0', true);
 	}
 }
