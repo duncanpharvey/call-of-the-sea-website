@@ -9,7 +9,7 @@ add_action('after_setup_theme', 'avada_lang_setup');
 
 function theme_enqueue_scripts_styles()
 {
-	wp_enqueue_style('child-style', get_stylesheet_directory_uri() . '/style.css', array('avada-stylesheet'), '1.5.0');
+	wp_enqueue_style('child-style', get_stylesheet_directory_uri() . '/style.css', array('avada-stylesheet'), '1.6.2');
 
 	if (is_page(757)) {
 		wp_enqueue_style('home-title-bar-style', get_stylesheet_directory_uri() . '/home-title-bar.css', array(), '1.0.0');
