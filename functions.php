@@ -51,10 +51,10 @@ add_action('admin_menu', 'hide_unused_wordpress_menus');
 
 function update_manifest($manifest)
 {
-	$manifest['short_name'] = 'COTS';
+	$manifest['short_name'] = 'CalloftheSea';
 	$manifest['icons'] = [
 		["src" => "/wp-content/uploads/2020/06/call-of-the-sea-logo-512px.png", "sizes" => "512x512"],
-		["src" => "/wp-content/uploads/2020/06/call-of-the-sea-logo-touch-192px.png", "sizes" => "192x192"]
+		["src" => "/wp-content/uploads/2020/06/call-of-the-sea-logo-192px.png", "sizes" => "192x192"]
 	];
 	return $manifest;
 }
