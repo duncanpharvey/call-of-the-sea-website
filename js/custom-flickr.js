@@ -130,6 +130,8 @@ function createFlickrPhotoElements(photos, owner, featured) {
 
         var photo_wrapper = document.createElement('div');
         photo_wrapper.classList.add('flickr-photo-wrapper');
+        if (featured) { photo_wrapper.classList.add('full-width'); }
+        else { photo_wrapper.classList.add('half-width'); }
         photo_wrapper.innerHTML = link;
         photo_container.appendChild(photo_wrapper);
     });

@@ -24,9 +24,9 @@ function theme_enqueue_scripts_styles()
 	}
 
 	if (in_category('page-custom-code-flickr')) {
-		wp_enqueue_style('flickr-style', get_stylesheet_directory_uri() . '/css/flickr.css', array(), '1.1.0');
+		wp_enqueue_style('flickr-style', get_stylesheet_directory_uri() . '/css/flickr.css', array(), '1.2.0');
 		wp_enqueue_script('axios', 'https://unpkg.com/axios/dist/axios.min.js', array(), '0.19.2', true);
-		wp_enqueue_script('custom-flickr', get_stylesheet_directory_uri() . '/js/custom-flickr.js', array('axios'), '2.2.2', true);
+		wp_enqueue_script('custom-flickr', get_stylesheet_directory_uri() . '/js/custom-flickr.js', array('axios'), '2.3.0', true);
 	}
 
 	if (in_category('page-custom-code-stripe')) {

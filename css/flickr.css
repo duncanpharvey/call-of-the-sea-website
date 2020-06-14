@@ -1,17 +1,23 @@
-/*
-Version: 1.0.0
-*/
-
 @media (max-width: 768px) {
+    .flickr-photo-wrapper.half-width {
+        max-width: 156px;
+        width: 50%;
+    }
+
+    .flickr-photo-wrapper.full-width {
+        max-width: 306px;
+        width: 100%;
+    }
+
     .flickr-photo {
 		height: 150px;
 		width: 150px;
 	}
 
-	.flickr-photo.featured {
-		height: 300px;
-		width: 300px;
-	}
+    .flickr-photo.featured {
+	    height: 300px;
+	    width: 300px;
+    }
 }
 
 @media (min-width: 769px) {
@@ -24,10 +30,15 @@ Version: 1.0.0
         opacity: 0.3;
     }
 
-	.flickr-photo.featured {
-		height: 400px;
-		width: 400px;
-	}
+    .flickr-photo.featured {
+	    height: 400px;
+	    width: 400px;
+    }
+}
+
+select#flickr-album {
+    max-width: 400px;
+    width: 100%;
 }
 
 .flickr-photo-wrapper {
