@@ -125,13 +125,12 @@ function createFlickrPhotoElements(photos, owner, featured) {
         var embed_url = `https://farm${photo.farm}.static.flickr.com/${photo.server}/${photo.id}_${photo.secret}_${size}.jpg`;
         var link_url = `https://www.flickr.com/photos/${owner ? owner : photo.owner}/${photo.id}`;
 
-        var photo = `<img class="flickr-photo lazyload${featured ? " featured" : ""}" alt="${photo.title}" src="${embed_url}"></img>`;
+        var photo = `<img class="flickr-photo lazyload" alt="${photo.title}" src="${embed_url}"></img>`;
         var link = `<a href="${link_url}" target="_blank">${photo}</a>`;
 
         var photo_wrapper = document.createElement('div');
         photo_wrapper.classList.add('flickr-photo-wrapper');
-        if (featured) { photo_wrapper.classList.add('full-width'); }
-        else { photo_wrapper.classList.add('half-width'); }
+        if (featured) { photo_wrapper.classList.add('featured'); }
         photo_wrapper.innerHTML = link;
         photo_container.appendChild(photo_wrapper);
     });

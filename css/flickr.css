@@ -1,39 +1,66 @@
-@media (max-width: 768px) {
-    .flickr-photo-wrapper.half-width {
-        max-width: 156px;
-        width: 50%;
+@media (max-width: 480px) {
+    .flickr-photo-wrapper {
+        margin: 0.5%;
+        padding-top: 49%;
+        width: 49%;
     }
 
-    .flickr-photo-wrapper.full-width {
-        max-width: 306px;
-        width: 100%;
-    }
-
-    .flickr-photo {
-		height: 150px;
-		width: 150px;
-	}
-
-    .flickr-photo.featured {
-	    height: 300px;
-	    width: 300px;
+    .flickr-photo-wrapper.featured {
+        margin: 0.5%;
+        padding-top: 99%;
+        width: 99%;
     }
 }
 
-@media (min-width: 769px) {
-    .flickr-photo {
-		height: 200px;
-		width: 200px;
+@media (min-width: 481px) and (max-width: 768px) {
+    .flickr-photo-wrapper {
+        margin: 0.5%;
+        padding-top: 24%;
+        width: 24%;
     }
 
+    .flickr-photo-wrapper.featured {
+        margin: 0.5%;
+        padding-top: 49%;
+        width: 49%;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 992px) {
+    .flickr-photo-wrapper {
+        margin: 0.5%;
+        padding-top: 19%;
+        width: 19%;
+    }
+
+    .flickr-photo-wrapper.featured {
+        margin: 0.33%;
+        padding-top: 32.66%;
+        width: 32.66%;
+    }
+}
+
+@media (min-width: 993px) {
     .flickr-photo:hover {
         opacity: 0.3;
     }
 
-    .flickr-photo.featured {
-	    height: 400px;
-	    width: 400px;
+    .flickr-photo-wrapper {
+        margin: 0.33%;
+        padding-top: 16%;
+        width: 16%;
     }
+
+    .flickr-photo-wrapper.featured {
+        margin: 0.33%;
+        padding-top: 32.66%;
+        width: 32.66%;
+    }
+}
+
+#flickr-album-container,
+#flickr-photo-container {
+    display: block;
 }
 
 select#flickr-album {
@@ -43,21 +70,23 @@ select#flickr-album {
 
 .flickr-photo-wrapper {
     display: inline-block;
-    padding: 3px;
-}
-
-#flickr-album-container,
-#flickr-photo-container,
-.flickr-photo-wrapper > a {
-    display: block;
+    position: relative;
+    vertical-align: top;
 }
 
 .flickr-photo {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
     animation-duration: 1s;
     animation-iteration-count: 1;
     animation-name: fadeInOpacity;
     animation-timing-function: ease-in;
-    object-fit: cover;
     opacity: 1;
     transition: opacity 0.2s;
 }
