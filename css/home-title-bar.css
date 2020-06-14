@@ -1,7 +1,3 @@
-/*
-Version: 1.0.0
-*/
-
 /* add parallax effect on large screens */
 @media (min-width: 993px) {
     .page-id-757 .fusion-page-title-bar .fusion-row { position:fixed; z-index:2; }
