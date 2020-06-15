@@ -4,7 +4,7 @@ const api_key = 'd06fdce54f321deaef2c50239191f68c';
 const format = 'json';
 const flickr_api_url = 'https://api.flickr.com/services/rest/';
 const nojsoncallback = '1';
-const per_page = '24';
+const per_page = '48';
 const user_id = '188642069@N06';
 
 var currentPage = 1;
