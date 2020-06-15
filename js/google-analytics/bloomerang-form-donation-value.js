@@ -1,8 +1,8 @@
 function() {
     var text = {{Click Element}}.value.toLowerCase();
-    var regex = /\d+\.\d{2}$/;
+    var regex = /\$(\d|,|\.)+$/;
     var value;
-    if (regex.test(text)) { value = text.match(regex)[0]; }
+    if (regex.test(text)) { value = parseInt(text.match(regex)[0].slice(1).replace(/,/g, '')); }
     else { value = 0; }
     return value;
 }
