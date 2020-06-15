@@ -1,42 +1,36 @@
 @media (max-width: 480px) {
     .flickr-photo-wrapper {
-        margin: 0.5%;
-        padding-top: 49%;
-        width: 49%;
+        padding-top: 50%;
+        width: 50%;
     }
 
     .flickr-photo-wrapper.featured {
-        margin: 0.5%;
-        padding-top: 99%;
-        width: 99%;
+        padding-top: 100%;
+        width: 100%;
     }
 }
 
 @media (min-width: 481px) and (max-width: 768px) {
     .flickr-photo-wrapper {
-        margin: 0.5%;
-        padding-top: 24%;
-        width: 24%;
+        padding-top: 25%;
+        width: 25%;
     }
 
     .flickr-photo-wrapper.featured {
-        margin: 0.5%;
-        padding-top: 49%;
-        width: 49%;
+        padding-top: 50%;
+        width: 50%;
     }
 }
 
 @media (min-width: 769px) and (max-width: 992px) {
     .flickr-photo-wrapper {
-        margin: 0.5%;
-        padding-top: 19%;
-        width: 19%;
+        padding-top: 20%;
+        width: 20%;
     }
 
     .flickr-photo-wrapper.featured {
-        margin: 0.33%;
-        padding-top: 32.66%;
-        width: 32.66%;
+        padding-top: 33.33%;
+        width: 33.33%;
     }
 }
 
@@ -46,15 +40,13 @@
     }
 
     .flickr-photo-wrapper {
-        margin: 0.33%;
-        padding-top: 16%;
-        width: 16%;
+        padding-top: 16.66%;
+        width: 16.66%;
     }
 
     .flickr-photo-wrapper.featured {
-        margin: 0.33%;
-        padding-top: 32.66%;
-        width: 32.66%;
+        padding-top: 33.33%;
+        width: 33.33%;
     }
 }
 
@@ -82,6 +74,7 @@ select#flickr-album {
     left: 0;
     height: 100%;
     width: 100%;
+    padding: 2px;
     object-fit: cover;
     animation-duration: 1s;
     animation-iteration-count: 1;
