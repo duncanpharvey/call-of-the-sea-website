@@ -1,5 +1,7 @@
 from datetime import datetime
+import re
 
+eventTitle = input['eventTitle'] if 'eventTitle' in input else ''
 boardingDateTime = input['boardingDateTime'] if 'boardingDateTime' in input else ''
 disembarkingDateTime = input['disembarkingDateTime'] if 'disembarkingDateTime' in input else ''
 
@@ -18,4 +20,4 @@ except:
     disembarkingDate = ''
     disembarkingTime = ''
 
-output = [{ 'boardingDate': boardingDate, 'boardingTime': boardingTime, 'disembarkingDate': disembarkingDate, 'disembarkingTime': disembarkingTime }]
+output = [{ 'vessel': re.search(r'Matthew Turner|Seaward', eventTitle).group(), 'boardingDate': boardingDate, 'boardingTime': boardingTime, 'disembarkingDate': disembarkingDate, 'disembarkingTime': disembarkingTime }]
