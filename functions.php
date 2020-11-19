@@ -11,10 +11,6 @@ function theme_enqueue_scripts_styles()
 {
 	wp_enqueue_style('child-style', get_stylesheet_directory_uri() . '/style.css', array('avada-stylesheet'), '1.6.2');
 
-	if (is_page(757)) {
-		wp_enqueue_style('home-title-bar-style', get_stylesheet_directory_uri() . '/css/home-title-bar.css', array(), '1.1.1');
-	}
-
 	if (in_category('page-custom-code-payment-success')) {
 		wp_enqueue_script('custom-payment-success', get_stylesheet_directory_uri() . '/js/custom-payment-success.js', array(), '2.2.0', true);
 	}
@@ -79,9 +75,12 @@ function disable_unused_scripts()
 	wp_deregister_script('wp-embed'); // 2020-05-28
 
 	// fusion slider, deregistered on 2020-06-03
-	Fusion_Dynamic_JS::deregister_script('avada-fusion-slider');
-	Fusion_Dynamic_JS::deregister_script('fusion-flexslider');
-	Fusion_Dynamic_JS::deregister_script('jquery-flexslider');
+	// enabled on home page 2020-11-19
+	if (!is_page(757)) {
+		Fusion_Dynamic_JS::deregister_script('avada-fusion-slider');
+		Fusion_Dynamic_JS::deregister_script('fusion-flexslider');
+		Fusion_Dynamic_JS::deregister_script('jquery-flexslider');
+	}
 
 	// image carousel, deregistered on 2020-05-27
 	Fusion_Dynamic_JS::deregister_script('fusion-carousel');
@@ -111,12 +110,14 @@ function disable_unused_scripts()
 	Fusion_Dynamic_JS::deregister_script('fusion-blog');
 	Fusion_Dynamic_JS::deregister_script('fusion-gallery');
 	Fusion_Dynamic_JS::deregister_script('fusion-lightbox');
-	Fusion_Dynamic_JS::deregister_script('images-loaded');
-	Fusion_Dynamic_JS::deregister_script('isotope');
-	Fusion_Dynamic_JS::deregister_script('jquery-infinite-scroll');
 	Fusion_Dynamic_JS::deregister_script('jquery-lightbox');
 	Fusion_Dynamic_JS::deregister_script('jquery-mousewheel');
-	Fusion_Dynamic_JS::deregister_script('packery');
+
+	// enabled for the events calendar on 2020-11-17
+	//Fusion_Dynamic_JS::deregister_script('images-loaded');
+	//Fusion_Dynamic_JS::deregister_script('isotope');
+	//Fusion_Dynamic_JS::deregister_script('jquery-infinite-scroll');
+	//Fusion_Dynamic_JS::deregister_script('packery');
 
 	// counters box, deregistered on 2020-06-09
 	Fusion_Dynamic_JS::deregister_script('fusion-counters-box');

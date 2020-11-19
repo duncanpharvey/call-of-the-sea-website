@@ -1,3 +1,8 @@
+/*
+See in action at https://callofthesea.org/photo-gallery/
+Check out more at https://github.com/duncanpharvey/
+*/
+
 // flickr photo sizes - https://www.flickr.com/services/api/misc.urls.html
 const default_size = 'm';
 const api_key = 'd06fdce54f321deaef2c50239191f68c';
