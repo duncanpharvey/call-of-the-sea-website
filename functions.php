@@ -120,12 +120,13 @@ function disable_unused_scripts()
 	Fusion_Dynamic_JS::deregister_script('fusion-lightbox');
 	Fusion_Dynamic_JS::deregister_script('jquery-lightbox');
 	Fusion_Dynamic_JS::deregister_script('jquery-mousewheel');
-
-	// enabled for the events calendar on 2020-11-17
-	//Fusion_Dynamic_JS::deregister_script('images-loaded');
-	//Fusion_Dynamic_JS::deregister_script('isotope');
-	//Fusion_Dynamic_JS::deregister_script('jquery-infinite-scroll');
-	//Fusion_Dynamic_JS::deregister_script('packery');
+	
+	// events, deregistered on 2020-11-24
+	Fusion_Dynamic_JS::deregister_script('avada-events');
+	Fusion_Dynamic_JS::deregister_script('images-loaded');
+	Fusion_Dynamic_JS::deregister_script('isotope');
+	Fusion_Dynamic_JS::deregister_script('jquery-infinite-scroll');
+	Fusion_Dynamic_JS::deregister_script('packery');
 
 	// counters box, deregistered on 2020-06-09
 	Fusion_Dynamic_JS::deregister_script('fusion-counters-box');

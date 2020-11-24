@@ -51,7 +51,7 @@ $time_formatted = apply_filters('tribe_events_single_event_time_formatted', $tim
 $time_title = apply_filters('tribe_events_single_event_time_title', __('Time:', 'the-events-calendar'), $event_id);
 
 $cost = tribe_get_formatted_cost();
-$url = tribe_get_event_website_url($event);
+$url = tribe_get_event_website_url($event_id);
 ?>
 
 <div class="tribe-events-meta-group tribe-events-meta-group-details">
