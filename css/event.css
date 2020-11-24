@@ -1,0 +1,14 @@
+/* applies styles to template /tribe-events/single-event.php */
+
+.fusion-button.event-details-button {
+    background-color: #ff9800;
+}
+
+.fusion-button.eventbrite-checkout-button {
+    background-color: #0d8547;
+}
+
+#eventbrite-widget-modal-trigger-2 {
+    margin-top: 12px;
+    max-width: 420px;
+}

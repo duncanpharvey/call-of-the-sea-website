@@ -11,6 +11,14 @@ function theme_enqueue_scripts_styles()
 {
 	wp_enqueue_style('child-style', get_stylesheet_directory_uri() . '/style.css', array('avada-stylesheet'), '1.6.2');
 
+	if (tribe_is_event() && is_single()) {
+		wp_enqueue_style('event-style', get_stylesheet_directory_uri() . '/css/event.css', array(), '1.0.6');
+		if (get_post_meta(get_queried_object_id(), "_EventBriteID", true)) {
+			wp_enqueue_script('eventbrite', 'https://www.eventbrite.com/static/widgets/eb_widgets.js', array(), '1.0.0', true);
+			wp_enqueue_script('custom-eventbrite', get_stylesheet_directory_uri() . '/js/custom-eventbrite.js', array('eventbrite'), '1.0.7', true);
+		}
+	}
+
 	if (in_category('page-custom-code-payment-success')) {
 		wp_enqueue_script('custom-payment-success', get_stylesheet_directory_uri() . '/js/custom-payment-success.js', array(), '2.2.0', true);
 	}
