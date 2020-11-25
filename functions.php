@@ -84,14 +84,14 @@ function disable_unused_scripts()
 
 	// fusion slider, deregistered on 2020-06-03
 	// enabled on home page 2020-11-19
-	if (!is_page(757)) {
+	if (!is_front_page()) {
 		Fusion_Dynamic_JS::deregister_script('avada-fusion-slider');
 		Fusion_Dynamic_JS::deregister_script('fusion-flexslider');
 		Fusion_Dynamic_JS::deregister_script('jquery-flexslider');
 	}
 
 	// selectively deregister scripts on home page, 2020-11-24
-	if (is_page(757)) {
+	if (is_front_page()) {
 		Fusion_Dynamic_JS::deregister_script('avada-sidebars');
 
 		Fusion_Dynamic_JS::deregister_script('bootstrap-collapse');
