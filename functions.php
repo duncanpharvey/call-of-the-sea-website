@@ -90,6 +90,19 @@ function disable_unused_scripts()
 		Fusion_Dynamic_JS::deregister_script('jquery-flexslider');
 	}
 
+	// selectively deregister scripts on home page, 2020-11-24
+	if (is_page(757)) {
+		Fusion_Dynamic_JS::deregister_script('avada-sidebars');
+
+		Fusion_Dynamic_JS::deregister_script('bootstrap-collapse');
+		Fusion_Dynamic_JS::deregister_script('bootstrap-modal');
+
+		Fusion_Dynamic_JS::deregister_script('fusion-content-boxes');
+		Fusion_Dynamic_JS::deregister_script('fusion-modal');
+		Fusion_Dynamic_JS::deregister_script('fusion-scroll-to-anchor');
+		Fusion_Dynamic_JS::deregister_script('fusion-toggles');
+	}
+
 	// image carousel, deregistered on 2020-05-27
 	Fusion_Dynamic_JS::deregister_script('fusion-carousel');
 	Fusion_Dynamic_JS::deregister_script('jquery-caroufredsel');
@@ -120,7 +133,7 @@ function disable_unused_scripts()
 	Fusion_Dynamic_JS::deregister_script('fusion-lightbox');
 	Fusion_Dynamic_JS::deregister_script('jquery-lightbox');
 	Fusion_Dynamic_JS::deregister_script('jquery-mousewheel');
-	
+
 	// events, deregistered on 2020-11-24
 	Fusion_Dynamic_JS::deregister_script('avada-events');
 	Fusion_Dynamic_JS::deregister_script('images-loaded');
