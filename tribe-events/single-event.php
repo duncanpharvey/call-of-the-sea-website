@@ -19,6 +19,32 @@ $events_label_singular = tribe_get_event_label_singular();
 $events_label_plural = tribe_get_event_label_plural();
 
 $event_id = Tribe__Main::post_id_helper();
+$eventbrite_id = get_post_meta($event_id, "_EventBriteID", true);
+
+function render_event_title_and_eventbrite_checkout_button($event_id, $eventbrite_id)
+{
+?>
+	<div>
+		<div class="fusion-events-single-title-content">
+			<?php the_title('<h2 class="tribe-events-single-event-title summary entry-title">', '</h2>'); ?>
+			<div class="tribe-events-schedule updated published tribe-clearfix">
+				<?php echo tribe_events_event_schedule_details($event_id, '<h3>', '</h3>'); // phpcs:ignore WordPress.Security.EscapeOutput ?>
+				<?php if (tribe_get_cost()) : ?>
+					<span class="tribe-events-divider">|</span>
+					<span class="tribe-events-cost"><?php echo tribe_get_cost(null, true); // phpcs:ignore WordPress.Security.EscapeOutput ?></span>
+				<?php endif; ?>
+				<?php
+				// Eventbrite ticket widget
+				if ($eventbrite_id) : ?>
+					<a class="fusion-button button-flat fusion-button-default-size button-default fusion-button-default-span fusion-button-default-type eventbrite-checkout-button" target="_self" id="eventbrite-widget-modal-trigger-2" eventbriteid="<?php echo $eventbrite_id; ?>">
+						<span class="fusion-button-text">Buy Tickets</span>
+					</a>
+				<?php endif ?>
+			</div>
+		</div>
+	</div>
+<?php
+}
 ?>
 
 <div id="tribe-events-content" class="tribe-events-single">
@@ -37,34 +63,12 @@ $event_id = Tribe__Main::post_id_helper();
 			<?php if (has_post_thumbnail()) :  ?>
 				<div class="fusion-events-featured-image">
 					<div class="fusion-ec-hover-type hover-type-<?php echo Avada()->settings->get('ec_hover_type'); ?>">
-
 						<?php avada_singular_featured_image(); ?>
-						<div>
-							<div class="fusion-events-single-title-content">
-								<?php the_title('<h2 class="tribe-events-single-event-title summary entry-title">', '</h2>'); ?>
-								<div class="tribe-events-schedule updated published tribe-clearfix">
-									<?php echo tribe_events_event_schedule_details($event_id, '<h3>', '</h3>'); // phpcs:ignore WordPress.Security.EscapeOutput 
-									?>
-									<?php if (tribe_get_cost()) : ?>
-										<span class="tribe-events-divider">|</span>
-										<span class="tribe-events-cost"><?php echo tribe_get_cost(null, true); // phpcs:ignore WordPress.Security.EscapeOutput 
-																		?></span>
-									<?php endif; ?>
-									<?php
-									// Eventbrite ticket widget
-									$eventbrite_id = get_post_meta($event_id, "_EventBriteID", true);
-									if ($eventbrite_id) : ?>
-										<a class="fusion-button button-flat fusion-button-default-size button-default fusion-button-default-span fusion-button-default-type eventbrite-checkout-button" target="_self" id="eventbrite-widget-modal-trigger-2" eventbriteid="<?php echo $eventbrite_id; ?>">
-											<span class="fusion-button-text">Buy Tickets</span>
-										</a>
-									<?php endif ?>
-								</div>
-							</div>
-						</div>
+						<?php render_event_title_and_eventbrite_checkout_button($event_id, $eventbrite_id ); ?>
 					</div>
 				<?php else : ?>
 					<div class="fusion-events-featured-image fusion-events-single-title">
-						<?php Avada_EventsCalendar::render_single_event_title(); ?>
+						<?php render_event_title_and_eventbrite_checkout_button($event_id, $eventbrite_id ); ?>
 					<?php endif; ?>
 					</div>
 
