@@ -39,7 +39,7 @@ function theme_enqueue_scripts_styles()
 	}
 
 	if (in_category('page-custom-code-bloomerang')) {
-		wp_enqueue_style('bloomerang-style', get_stylesheet_directory_uri() . '/css/bloomerang.css', array(), '1.1.3');
+		wp_enqueue_style('bloomerang-style', get_stylesheet_directory_uri() . '/css/bloomerang.css', array(), '1.1.4');
 		wp_enqueue_script('custom-bloomerang-initialize-form', get_stylesheet_directory_uri() . '/js/custom-bloomerang-initialize-form.js', array(), '2.0.0', true);
 	}
 }
