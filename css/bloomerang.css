@@ -38,21 +38,18 @@
 }
 
 /* hide form field labels */
-#donation-form h3,
-#donation-form label,
-#email-registration-form h3,
-#email-registration-form label:not([for="CustomAccountField_945152"]),
-#email-registration-form .consent {
+.bloomerang-form h3,
+.bloomerang-form label:not([for="CustomAccountField_945152"]),
+.bloomerang-form .consent {
     display: none;
 }
 
 /* use consistent style across all form fields, including Stripe credit card field */
-#donation-form input,
-#donation-form select,
-#donation-form textarea,
-#donation-form #card-element.StripeElement,
-#email-registration-form input, 
-#email-registration-form .checkboxes {
+.bloomerang-form .section .field input:not([type=submit]),
+.bloomerang-form .section .field select,
+.bloomerang-form .section .field textarea,
+.bloomerang-form .section .field .checkboxes,
+#donation-form #card-element.StripeElement {
     border-color: #dcdcdc;
     border-radius: 5px;
     border-style: inset;
@@ -63,9 +60,8 @@
     height: 36px;
 }
 
-#donation-form input::placeholder,
-#donation-form textarea::placeholder,
-#email-registration-form input::placeholder {
+.bloomerang-form textarea::placeholder,
+.bloomerang-form input::placeholder {
     color: #b3b3b3;
 }
 
@@ -84,7 +80,7 @@
     padding-left: 14px;
 }
 
-#email-registration-form #CustomAccountField_945152 {
+.bloomerang-form #CustomAccountField_945152 {
 	height: auto;
 }
 
@@ -98,9 +94,9 @@
 }
 
 /* style submit button */
-#donation-form .btn-submit,
-#email-registration-form .btn-submit {
+.bloomerang-form .btn-submit {
     background-color: #313e7c;
+    border-radius: 5px;
     border-style: solid;
     border-width: 0px;
     color: #ffffff;
@@ -113,7 +109,6 @@
     width: 275px;
 }
 
-#donation-form .btn-submit:hover,
-#email-registration-form .btn-submit:hover {
+.bloomerang-form .btn-submit:hover {
     background-color: black;
 }

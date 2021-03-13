@@ -1,21 +1,10 @@
 function initializeForm(form) {
-    var field_ids;
+    form.classList.add('bloomerang-form');
 
-    if (form.id == 'donation-form-container') {
-        var state = form.querySelector('#state');
-        if (state) { state.value = 'CA'; }
+    var state = form.querySelector('#state');
+    if (state) { state.value = 'CA'; }
 
-        field_ids = '#donation-amount, #first-name, #last-name, #email-address, #phone-number, #street-address, #city, #state, #zip-code, #comment';
-    }
-    else if (form.id == 'email-registration-form-container') {
-        field_ids = '#first-name, #last-name, #email-address';
-    }
-    else {
-        console.log('No donation or email registration form to initialize');
-        return;
-    }
-
-    form.querySelectorAll(field_ids + ', .custom-fields > .field.text > input').forEach(field => {
+    form.querySelectorAll('input[type=text], input[type=email], input[type=tel], input[type=number], textarea:not(.g-recaptcha-response)').forEach(field => {
         var label = field.labels[0].textContent;
         if (field.classList.contains('required')) { label = label.replace('*', ''); }
         else { label += ' (Optional)'; }
@@ -38,8 +27,8 @@ document.addEventListener('DOMContentLoaded', () => {
     var observer = new MutationObserver(() => {
         var form = document.querySelector('#donation-form-container, #email-registration-form-container');
         if (form) {
-            initializeForm(form);
             observer.disconnect();
+            initializeForm(form);
         }
     });
 
