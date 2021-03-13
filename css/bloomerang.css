@@ -104,7 +104,8 @@
 }
 
 /* style submit button */
-.bloomerang-form .btn-submit {
+.bloomerang-form .btn-submit,
+.bloomerang-form .additional-volunteering > button {
     background-color: #313e7c;
     border-radius: 5px;
     border-style: solid;
@@ -119,7 +120,8 @@
     width: 275px;
 }
 
-.bloomerang-form .btn-submit:hover {
+.bloomerang-form .btn-submit:hover,
+.bloomerang-form .additional-volunteering > button:hover {
     background-color: black;
 }
 
