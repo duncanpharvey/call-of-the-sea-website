@@ -37,11 +37,18 @@
     width: 160px;
 }
 
-/* hide form field labels */
-.bloomerang-form h3,
-.bloomerang-form label:not([for="CustomAccountField_945152"]),
-.bloomerang-form .consent {
+/* hide all form field labels except for custom checkbox labels */
+.bloomerang-form .section h3,
+.bloomerang-form .section label,
+.bloomerang-form .section .consent {
     display: none;
+}
+
+.bloomerang-form label[for="CustomAccountField_945152"],
+.bloomerang-form label[for="CustomAccountField_28607489"],
+.bloomerang-form label[for="CustomAccountField_28743680"],
+.bloomerang-form label[for="volunteer-date"] {
+    display: block;
 }
 
 /* use consistent style across all form fields, including Stripe credit card field */
@@ -80,13 +87,16 @@
     padding-left: 14px;
 }
 
-.bloomerang-form #CustomAccountField_945152 {
+.bloomerang-form .section.custom-fields .field .checkboxes {
 	height: auto;
 }
 
-/* style Stripe credit card field */
+/* style Stripe credit card field and custom fields */
+.bloomerang-form #CustomAccountField_28604418,
+.bloomerang-form #CustomAccountField_28604419,
+.bloomerang-form #CustomAccountField_28607490,
 #donation-form #card-element.StripeElement {
-	max-width:350px;
+	max-width:375px;
 }
 
 #donation-form #card-element.StripeElement--invalid {

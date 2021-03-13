@@ -1,9 +1,18 @@
 function initializeForm(form) {
     form.classList.add('bloomerang-form');
 
-    var state = form.querySelector('#state');
-    if (state) { state.value = 'CA'; }
+    // hide phone and address fields on log volunteer hours form
+    if (document.querySelector('script[src$="28687360.js"]')) {
+        form.querySelectorAll('.field.phone-number, .section.address').forEach(field => {
+            field.style.display = 'none';
+        });
+    }
 
+    // prefill CA as state if field is present
+    var state = form.querySelector('#state');
+    if (state && state.parentElement.parentElement.style.display != 'none') { state.value = 'CA'; }
+
+    // set placeholder as field name
     form.querySelectorAll('input[type=text], input[type=email], input[type=tel], input[type=number], textarea:not(.g-recaptcha-response)').forEach(field => {
         var label = field.labels[0].textContent;
         if (field.classList.contains('required')) { label = label.replace('*', ''); }
@@ -27,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     var observer = new MutationObserver(() => {
-        var form = document.querySelector('#donation-form-container, #email-registration-form-container');
+        var form = document.querySelector('#donation-form-container, #email-registration-form-container, #interaction-form-container');
         if (form) {
             observer.disconnect();
             initializeForm(form);
