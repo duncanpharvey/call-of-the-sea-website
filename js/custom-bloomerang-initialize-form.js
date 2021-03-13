@@ -10,6 +10,8 @@ function initializeForm(form) {
         else { label += ' (Optional)'; }
         field.placeholder = label;
     });
+
+    form.style.display = 'block';
 }
 
 document.addEventListener('DOMContentLoaded', () => {

@@ -112,3 +112,8 @@
 .bloomerang-form .btn-submit:hover {
     background-color: black;
 }
+
+#donation-form-container,
+#email-registration-form-container {
+    display: none;
+}
