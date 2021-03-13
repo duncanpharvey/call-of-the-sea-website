@@ -124,6 +124,7 @@
 }
 
 #donation-form-container,
-#email-registration-form-container {
+#email-registration-form-container,
+#interaction-form-container {
     display: none;
 }
